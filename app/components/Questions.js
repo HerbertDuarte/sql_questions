@@ -20,8 +20,8 @@ export default function Questions() {
 
   return (
     <div>
-      <h1>Questions</h1>
       {!data && !error && <Loading/>}
+      {data && <h1 className='text-4xl font-bold text-slate-700'>Questions</h1>}
       {data && data.map((question)=>(
         <Card key={question.id} data={question}/>
       ))}
