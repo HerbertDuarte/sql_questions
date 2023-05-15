@@ -16,7 +16,9 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.get('/', (request, response)=>{
-  Question.findAll({raw: true}).then((questions)=>{
+  Question.findAll({raw: true, order : [
+    ['id', 'DESC'] // DESC = DECESCENTE | ASC = CRESCENTE
+  ]}).then((questions)=>{
     response.json(questions)
   })
 })
